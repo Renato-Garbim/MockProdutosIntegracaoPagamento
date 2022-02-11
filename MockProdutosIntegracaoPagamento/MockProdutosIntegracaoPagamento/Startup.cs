@@ -1,3 +1,4 @@
+using Microsoft.AspNetCore.Authentication.Certificate;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
@@ -26,6 +27,11 @@ namespace MockProdutosIntegracaoPagamento
         {
             services.AddControllersWithViews();
 
+            services.AddAuthentication(CertificateAuthenticationDefaults.AuthenticationScheme).AddCertificate()
+            // Adding an ICertificateValidationCache results in certificate auth caching the results.
+            // The default implementation uses a memory cache.
+            .AddCertificateCache();
+
             services.StartRegisterServices();
         }
 
@@ -47,6 +53,7 @@ namespace MockProdutosIntegracaoPagamento
 
             app.UseRouting();
 
+            app.UseAuthentication();
             app.UseAuthorization();
 
             app.UseEndpoints(endpoints =>
