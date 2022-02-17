@@ -18,6 +18,11 @@ namespace MockProdutosIntegracaoPagamento.Controllers
             _logger = logger;
         }
 
+        public PartialViewResult CarregarFormularioCompra()
+        {
+            return PartialView("ModalAssinatura");
+        }
+
         public IActionResult Index()
         {
             return View();
@@ -33,5 +38,8 @@ namespace MockProdutosIntegracaoPagamento.Controllers
         {
             return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
         }
+
+
+        
     }
 }
