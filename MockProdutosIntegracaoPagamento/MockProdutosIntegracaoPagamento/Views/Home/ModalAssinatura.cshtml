@@ -1,9 +1,9 @@
-﻿
+﻿@model MockProdutosIntegracaoPagamento.Models.Home.ModalViewModel
 
 
 <div class="modal-content">
     <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLongTitle">Modal title</h5>
+        <h5 class="modal-title" id="exampleModalLongTitle">Modelo de QRCode PIX</h5>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
             <span aria-hidden="true">&times;</span>
         </button>
@@ -11,11 +11,18 @@
 
 
     <div class="modal-body">
-        ...
+
+        
+
+        <form asp-action="" asp-antiforgery="true" method="post">
+            @Html.HiddenFor(m => Model.QRCode.pix_link)
+
+
+            <div id="qrcode"></div>
+        </form>
+
+
     </div>
-
-
-
 
 
     <div class="modal-footer">
@@ -26,5 +33,24 @@
 
 
 
+
+
+    <script src="~/js/qrcode.min.js"></script>
+
+    <script type="text/javascript">
+
+        
+
+        var link = $('#QRCode_pix_link').val();
+
+        var qrcode = new QRCode(document.getElementById("qrcode"), {
+            text: link,
+            width: 128,
+            height: 128,
+            colorDark: "#000000",
+            colorLight: "#ffffff",
+            correctLevel: QRCode.CorrectLevel.H
+        });
+    </script>
 
 

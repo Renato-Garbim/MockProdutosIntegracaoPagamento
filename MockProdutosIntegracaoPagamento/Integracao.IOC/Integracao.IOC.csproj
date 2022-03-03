@@ -9,6 +9,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\IBBA.Services\IBBA.Services.csproj" />
     <ProjectReference Include="..\Integracao.Mock.DB\Integracao.Mock.DB.csproj" />
   </ItemGroup>
 

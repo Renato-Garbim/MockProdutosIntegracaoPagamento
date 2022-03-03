@@ -27,11 +27,12 @@ namespace MockProdutosIntegracaoPagamento
         {
             services.AddControllersWithViews();
 
+
             services.AddAuthentication(CertificateAuthenticationDefaults.AuthenticationScheme).AddCertificate()
             // Adding an ICertificateValidationCache results in certificate auth caching the results.
             // The default implementation uses a memory cache.
             .AddCertificateCache();
-
+                       
             services.StartRegisterServices();
         }
 

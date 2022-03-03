@@ -1,4 +1,6 @@
-﻿using Microsoft.Extensions.DependencyInjection;
+﻿using IBBA.Services;
+using IBBA.Services.Interfaces;
+using Microsoft.Extensions.DependencyInjection;
 using System;
 
 namespace Integracao.IOC.Modulos
@@ -7,7 +9,7 @@ namespace Integracao.IOC.Modulos
     {
         public static void SetModules(IServiceCollection container)
         {
-            //container.AddScoped<IGameService, GameService>();
+            container.AddScoped<IPixApiService, PixApiService>();
         }
     }
 }
